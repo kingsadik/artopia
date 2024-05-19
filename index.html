@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Exhibition</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        background-image: 
+            radial-gradient(circle at 10% 20%, #ffcc00, transparent),
+            radial-gradient(circle at 80% 30%, #ff00cc, transparent),
+            radial-gradient(circle at 40% 60%, #00ffcc, transparent),
+            radial-gradient(circle at 70% 80%, #ff3300, transparent),
+            radial-gradient(circle at 20% 90%, #6600ff, transparent);
+        background-blend-mode: overlay;
+    }
+    header {
+        background-image: url('header_image.jpg');
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        background-position: center;
+    }
+    .intro-text {
+        font-size: 1.2rem;
+        margin: 20px auto;
+        max-width: 800px;
+        text-align: center;
+    }
+    .artwork-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    .artwork {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 20px;
+        justify-content: center;
+    }
+    .artwork img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+    .artwork img:hover {
+        transform: scale(1.1);
+    }
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+    }
+    .overlay.active {
+        display: flex;
+    }
+    .overlay img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .caption {
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        border-top: 2px solid #fff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .text-slot {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 2.5rem;">ARTOPIA</h1>
+    </header>
+    <div class="intro-text">
+        <p>Welcome to the 23-24 Narmer American College Art Exhibition. 
+
+        </p>
+    </div>
+    <div class="artwork-container">
+        <div class="artwork">
+            <img src="image.jpeg" alt="Image 1">
+            <div class="text-slot">At Narmer American College, our students pour their hearts and souls into their artistic endeavors, dedicating countless hours to perfecting their craft and bringing their visions to life. Whether through research into historical and contemporary art movements or experimenting with new techniques, our students embody the spirit of creativity and hard work. Their commitment to artistic growth and exploration is evident in every brushstroke and every thought-provoking concept presented in this exhibition.</div>
+            <img src="image13.jpeg" alt="Image 2">
+            <div class="text-slot">This year's exhibition is a journey through a myriad of themes, styles, and mediums. From traditional oil paintings exploring nature's beauty to digital artworks pushing the boundaries of technology and imagination, our students fearlessly explore diverse artistic territories. Through their works, they tackle social issues, express emotions, and invite viewers to delve into thought-provoking narratives, creating a dynamic and engaging dialogue within the art community.</div>
+            <!-- Add more artwork
+items as needed -->
+</div>
+<!-- Additional text between "Gallery" and large images -->
+<div style="margin: 40px 0;">
+    <h2 style="font-size: 2rem; text-align: center;">Discover the Artists</h2>
+    <p style="text-align: center;">Explore the fascinating world of our featured artists and their unique perspectives.</p>
+</div>
+<div class="artwork">
+    <!-- Large images with text -->
+    <img src="image14.jpeg" alt="Image 3">
+    <div class="text-slot">Artist: Ali Ahmed<br>Description:Through his art, Ali aims to evoke a sense of introspection, inviting viewers to explore deeper layers of meaning and connect with their own emotions and experiences.</div>
+    <img src="image15.jpeg" alt="Image 4">
+    <div class="text-slot">Artist: Youssef Sherif<br>Description: an artist who draws inspiration from the beauty of everyday life and the complexities of human emotions. His work is a reflection of his experiences, observations, and inner thoughts, translated onto canvas through a blend of colors, textures, and symbolism.</div>
+    <!-- Add more artwork items as needed -->
+</div>
+<div style="margin-bottom: 40px;"></div> <!-- Moderate spacing -->
+<div style="text-align: center;">
+    <h2 style="font-size: 2rem;">Gallery</h2>
+</div>
+<div class="artwork">
+    <!-- Placeholder for smaller images with click feature -->
+    <div class="artwork-item" onclick="showOverlay('image1.jpeg', 'Diving into creativity, brushstroke by brushstroke.')">
+        <img src="image1.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image10.jpeg', 'Crafting dreams onto canvas, one color at a time.')">
+        <img src="image10.jpeg" alt="Artwork 4">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image2.jpeg', 'Exploring the art of creation with passion and purpose.')">
+        <img src="image2.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image1.jpeg', 'Where imagination meets the artist\'s skilled hands.')">
+        <img src="image3.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image4.jpeg', 'Creating magic in the studio, one masterpiece in progress.')">
+        <img src="image4.jpeg" alt="Artwork 4">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image5.jpeg', 'Capturing moments of inspiration in the midst of creation.')">
+        <img src="image5.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image6.jpeg', 'The art of bringing visions to life through dedication and skill.')">
+        <img src="image6.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image7.jpeg', 'In the artist\'s realm, every stroke tells a story.')">
+        <img src="image7.jpeg" alt="Artwork 4">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image8.jpeg', 'Lost in the rhythm of creation, shaping ideas into art.')">
+        <img src="image8.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image9.jpeg', 'Transforming blank spaces into vibrant expressions.')">
+        <img src="image9.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image11.jpeg', 'The journey of creation: hands at work, hearts inspired.')">
+        <img src="image11.jpeg" alt="Artwork 4">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image12.jpeg', 'Art in progress: where ideas take form and flourish.')">
+        <img src="image12.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image13.jpeg', 'Collaboration and creativity in perfect harmony.')">
+        <img src="image13.jpeg" alt="Artwork 3">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image16.jpeg', 'Every detail matters in the world of artistic endeavor.')">
+        <img src="image16.jpeg" alt="Artwork 4">
+    </div>
+    <div class="artwork-item" onclick="showOverlay('image17.jpeg', 'Capturing the essence of creativity in every brushstroke.')">
+        <img src="image17.jpeg" alt="Artwork 3">
+    </div>
+    <!-- Add more artwork items as needed -->
+</div>
+</div>
+<div class="overlay" onclick="hideOverlay()">
+<img id="overlayImage" src="" alt="Expanded Artwork">
+<div class="caption" id="overlayCaption"></div>
+</div>
+<footer>
+<p>&copy; 2024 NAC Art Exhibition. All rights reserved.</p>
+<div class="text-slot">nacegypt.com</div>
+</footer>
+
+<script>
+function showOverlay(imageSrc, captionText) {
+    document.getElementById('overlayImage').src = imageSrc;
+    document.getElementById('overlayCaption').textContent = captionText;
+    document.querySelector('.overlay').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when overlay is active
+}
+
+function hideOverlay() {
+    document.querySelector('.overlay').classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling when overlay is closed
+}
+</script>
+</body>
+</html>
